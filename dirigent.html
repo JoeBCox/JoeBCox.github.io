@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMV Oranje 't Zandt - Dirigent</title>
+    <link rel="stylesheet" href="dirigent.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png" />
+</head>
+
+<body>
+
+    <section class="main">
+
+        <!-- Heading -->
+
+        <nav>
+            <a href="OpenMeInChrome.html"><img src="Logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="OpenMeInChrome.html">Home</a></li>
+                    <li><a href="orkest.html">Orkest</a></li>
+                    <li><a href="galerij.html">Galerij</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donaties.html">Donaties</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Center -->
+
+        <div class="info">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                                        <h1><b>Niels Assink</b></h1>
+                                        <p>De man met het stokje die Oranje mag leiden is Niels! Niels komt uit Winterswijk en is sinds januari 2023 dirigent van onze vereniging. Hij speelt trombone, is afgestudeerd aan het Prins Claus Conversatorium en werkt nu vooral als freelancer in de muziekwereld. 
+                                            Overal waar muziek is, daar is Niels. Met zijn vrolijke en betrokken manier van dirigeren brengt hij erg veel plezier met zich mee tijdens de repetities. Daar wordt de repetitie, en natuurlijk ook de derde helft, een stuk leuker van!
+                                        
+                                        <p>Het gaat niet altijd even vlekkeloos, daarom hebben we ook een aantal anekdotes opgeschreven die je op de volgende pagina kan lezen!</p>
+                </div>
+
+                <div class="mySlides fade">
+                                        <h1><b>Anekdotes</b></h1>
+                                        <p>Naast dat Niels groot van is van blaasmuziek, is hij blijkbaar ook fan van zang. Hij liet het orkest namelijk bij zijn eerste repetitie zingen! 
+                                            Daar moesten we als orkest ook even aan wennen, "We zijn toch geen zangclub?", klonk het uit het orkest. En toch helpt het zingen wel degelijk voor de articulatie van muziek! Niels noemt ons soms ook al een voltallig koor, waar we eerst heel voorzichtig meezongen. </p>
+                                        <p>Bij de nieuwjaarsvisite in 2024 die we sinds een paar jaar doen, heeft Niels het voor elkaar gekregen om een muziekstuk in te zetten waarbij geen enkele muzikant begon te spelen. Dat was vooral voor ons als orkest erg geestig. </p>
+                                        <p>Bij de Paasdienst van 2024 waren we midden in een couplet aan het spelen waarbij ook gezonden werd, waarbij Niels plotseling afsloeg. De hele zaal was stil. Volgens hem waren we al bij het einde, maar er moesten nog een aantal regels gespeeld worden. Hij gaf daarbij wel het compliment dat we allemaal goed naar hem keken.</p>
+                </div>
+
+
+            </div>
+
+            <div class="load" style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+
+        </div>
+
+        <img class="selfie" src="Screenshot_20250628_232104_Gallery.jpg">
+
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+            showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+            showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            }
+        </script>
+
+    </section>
+
+</body>
+
+</html>

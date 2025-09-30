@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMV Oranje 't Zandt - Contactt</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png" />
+</head>
+
+<body>
+
+    <section class="main">
+
+        <!-- Heading -->
+
+        <nav>
+            <a href="OpenMeInChrome.html"><img src="Logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="dirigent.html">Dirigent</a></li>
+                    <li><a href="orkest.html">Orkest</a></li>
+                    <li><a href="galerij.html">Galerij</a></li>
+                    <li><a href="OpenMeInChrome.html">Home</a></li>
+                    <li><a href="donaties.html">Donaties</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Center -->
+
+        <div class="segmeant_container">
+
+            <div class="segmeant">
+                <div class="text-box-left first">
+                    <h4>Ons postadres:</h4>
+                    <p>Karshof 8,</p>
+                    <p>9915 RD 't Zandt GN,</p>
+                    <p>Nederland</p>
+                </div>
+                <div class="text-box-left">
+                    <h4>Ons e-mailadres:</h4>
+                    <p>muziekverenigingoranje@gmail.com</p>
+                </div>
+                <div class="text-box-left">
+                    <h4>Ons telefoonnummer (ook voor Whatsapp!):</h4>
+                    <p>06 52086422 (Lisette Datema)</p>
+                </div>
+                <div class="text-box-left">
+                        <h4>Ons KVK nummer:</h4>
+                        <p>40024048</p>
+                </div>
+            </div>
+
+            <div class="segmeant">
+                <form id="contactForm" action="mailto:joebcoxwork@outlook.com" method="post" enctype="text/plain">
+                    Je naam:
+                    <input type="text" name="name" id="name" placeholder="typ hier...">
+                    
+                    Je e-mailadres en/of telefoonnummer:
+                    <input type="text" name="number" id="number" placeholder="typ hier...">
+                    
+                    Je bericht:
+                    <div class="textarea-container">
+                        <textarea name="message" id="message" rows="4" maxlength="1000" placeholder="typ hier..."></textarea>
+                        <div id="charCount" class="char-count">0/1000</div>
+                    </div>
+                    
+                    <input type="submit" value="Verzenden">
+                </form>
+            </div>
+
+    </section>
+
+</body>
+
+</html>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const messageField = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+        
+        messageField.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+            
+            const currentLength = this.value.length;
+            charCount.textContent = `${currentLength}/1000`;
+            
+            if (currentLength >= 1000) {
+                charCount.style.color = "red";
+            } else {
+                charCount.style.color = "#888";
+            }
+        });
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const name = document.getElementById('name').value;
+            const number = document.getElementById('number').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = "Bericht vanuit website CMV Oranje 't Zandt";
+            
+            let body = '';
+            
+            if (name) {
+                body += `Name: ${name}\n`;
+            }
+            
+            if (number) {
+                body += `Phone Number: ${number}\n`;
+            }
+            
+            body += `\n${message}`;
+
+            const mailtoLink = `mailto:joebcoxwork@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink;
+        });
+    });
+
+</script>
